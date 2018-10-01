@@ -1,21 +1,53 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- <div class="flex items-stretch h-screen">
+  <div class="self-center flex-1 w-64 text-center px-4 py-2 m-2">
+   <h2> Version 0.1 </h2>
+   <br>
+   <a href="/login" mdc-button [unelevated]="true" class="big-round-corner-button">
+      Login
+   </a>
+  </div>
+</div> -->
+<mdc-top-app-bar #demoappbar [short]="false" [fixedAdjustElement]="content"
+[fixed]="true" [dense]="true">
+  <mdc-top-app-bar-row>
+    <mdc-top-app-bar-section align="start" title="Demo Technologies">
+      <mdc-icon mdcTopAppBarNavIcon>menu</mdc-icon>
+    </mdc-top-app-bar-section>
+    <mdc-top-app-bar-section align="end">
+      
+    </mdc-top-app-bar-section>
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
 
-<router-outlet></router-outlet>
+<main #content class="flex h-screen">
+    <mdc-drawer drawer="permanent" #sidepanel>
+        <mdc-drawer-header title="SQ1Shield" subtitle="SecqureOne Inc"></mdc-drawer-header>
+        <mdc-drawer-content>
+          <mdc-list useActivatedClass>          
+            <mdc-list-divider></mdc-list-divider>
+            <h6 mdcListGroupSubheader>Labels</h6>
+            <a mdc-list-item routerLink="/assets">
+              <mdc-icon mdcListItemGraphic>bookmark</mdc-icon>Assets
+            </a>
+            <a mdc-list-item href="#/drawer-demo">
+              <mdc-icon mdcListItemGraphic>bookmark</mdc-icon>Friends
+            </a>
+            <a mdc-list-item href="#/drawer-demo">
+              <mdc-icon mdcListItemGraphic>bookmark</mdc-icon>Work
+            </a>
+            <mdc-list-divider></mdc-list-divider>
+            <a mdc-list-item href="#/drawer-demo">
+              <mdc-icon mdcListItemGraphic>settings</mdc-icon>Settings
+            </a>
+            <a mdc-list-item href="#/drawer-demo">
+              <mdc-icon mdcListItemGraphic>announcement</mdc-icon>Help & feedback
+            </a>
+          </mdc-list>
+        </mdc-drawer-content>
+      </mdc-drawer>
+
+      <section class="m-5">
+          <router-outlet></router-outlet>
+      </section>
+   
+    </main>
